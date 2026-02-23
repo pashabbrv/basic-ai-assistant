@@ -26,10 +26,13 @@ def get_settings() -> dict[str, str]:
     if missing:
         raise RuntimeError(f"Missing env vars: {', '.join(missing)}")
 
+    log_level = os.getenv("LOG_LEVEL", "INFO")
+
     return {
         "TELEGRAM_TOKEN": telegram_token,
         "LLM_API_KEY": llm_api_key,
         "LLM_BASE_URL": llm_base_url,
         "MODEL_NAME": model_name,
         "SYSTEM_PROMPT": system_prompt,
+        "LOG_LEVEL": log_level,
     }

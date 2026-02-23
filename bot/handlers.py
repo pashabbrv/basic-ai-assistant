@@ -1,3 +1,5 @@
+import logging
+
 from aiogram import F, Router
 from aiogram.filters import Command
 from aiogram.types import Message
@@ -5,6 +7,7 @@ from aiogram.types import Message
 from bot.llm import ask_llm
 
 router = Router()
+logger = logging.getLogger(__name__)
 _history: dict[int, list[dict]] = {}
 
 
@@ -21,6 +24,7 @@ async def start(message: Message) -> None:
 @router.message(F.text)
 async def on_text(message: Message) -> None:
     user_id = message.from_user.id
+    logger.info("Incoming message user_id=%s text=%s", user_id, message.text)
     history = _get_history(user_id)
 
     reply = await ask_llm(history=history, message=message.text)
