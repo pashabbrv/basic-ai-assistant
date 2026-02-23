@@ -6,7 +6,7 @@
 |----------|--------|----------|
 | 1. Бот и конфиг из .env | ✅ Готово | /start и ответ от модели; настройки из .env, .env.example |
 | 2. Логирование | ✅ Готово | Логи в stdout с нужными событиями |
-| 3. Сборка и деплой | ⏳ Не начато | make run, Docker, готовность к VPS |
+| 3. Сборка и деплой | ✅ Готово | make run, Docker, готовность к VPS |
 
 Легенда: ⏳ Не начато · 🔄 В работе · ✅ Готово
 
@@ -42,8 +42,8 @@
 
 ### Итерация 3. Сборка и деплой
 
-- [ ] Makefile: install, run, run-docker, lint, format
-- [ ] Dockerfile (python:3.11-slim, uv), docker-compose.yml
-- [ ] Запуск через make run и docker compose
+- [x] Makefile: install, run, run-docker, lint, format
+- [x] Dockerfile (python:3.11-slim, uv), docker-compose.yml
+- [x] Запуск через make run и docker compose
 
 **Проверка:** `make install && make run` и `make run-docker` — бот работает; готовность к выкладке на VPS.
